@@ -1,0 +1,7 @@
+openai==0.27.2
+PyQt5==5.15.9
+PyQt5-Qt5==5.15.2
+PyQt5-sip==12.11.1
+pyqtspinner==2.0.0
+replicate==0.6.1
+
