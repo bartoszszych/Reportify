@@ -39,7 +39,7 @@ pip install -r requirements.txt
 
 ## Usage
 
-To start the Reportify application, run the `main.py` file located in the Reportify folder. Make sure you have entered your API keys and tokens in the `config.py` file located in the `supporting` folder.
+To start the Reportify application, run the `main.py` file located in the Reportify folder. Make sure you have entered your API keys and tokens in the `config.py` file located in the `supporting` folder:
 
 ```python
 openai_api_key = "ENTER YOUR OPENAI API KEY HERE"
