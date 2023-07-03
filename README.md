@@ -41,6 +41,11 @@ pip install -r requirements.txt
 
 To start the Reportify application, run the `main.py` file located in the Reportify folder. Make sure you have entered your API keys and tokens in the `config.py` file located in the `supporting` folder.
 
+```
+openai_api_key = "ENTER YOUR OPENAI API KEY HERE"
+replicate_api_token = "ENTER YOUR REPLICATE API TOKEN HERE"
+```
+
 Once the application starts, you can enter the report details such as title, description, and keywords. You can also add an audio recording or an image by clicking on the respective file buttons.
 
 After entering the details, click on the "Generate" button to start the report generation process. A waiting spinner will be displayed during the generation process. Once the report is generated, it will be displayed in the application window.
