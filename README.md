@@ -49,7 +49,7 @@ After entering the details, click on the "Generate" button to start the report g
 
 Reportify is a learning project and the usage of OpenAI and Replicate APIs is subject to their respective terms and conditions. Please ensure you have the necessary permissions and comply with the API providers' policies when using this application.
 
-This project aims to showcase Python programming skills, including GUI development, API integration, and multi-threaded implementation. It is suitable for beginner developers looking to learn these concepts.
+This project aims to showace Python programming skills, including GUI development, API integration, and multi-threaded implementation. 
 
 ## Support
 
