@@ -8,7 +8,7 @@ Reportify is a desktop application built using Python and PyQt5 that allows user
 - Generates a report by combining user inputs and additional details
 - Uses OpenAI ChatCompletion model for generating text from prompt
 - Transcribes speech to text using OpenAI Audio API
-- Extracts text from images using Replicate API
+- Extracts information about images using Replicate API
 - Multi-threaded implementation for better performance
 
 ## Folder Structure
