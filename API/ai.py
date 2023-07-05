@@ -8,13 +8,14 @@ class AI(QObject):
     __instance = None
     error_occured = pyqtSignal(str)
 
+    def __new__(cls, *args, **kwargs):
+        if not cls.__instance:
+            cls.__instance = super().__new__(cls)
+        return cls.__instance
+
     def __init__(self, openai_api_key: str, replicate_api_token: str) -> None:
-        if AI.__instance is not None:
-            raise Exception("This class is a Singleton")
-        
         super().__init__()
-        
-        AI.__instance = self
+
         openai.api_key = openai_api_key
         os.environ["REPLICATE_API_TOKEN"] = replicate_api_token
 
