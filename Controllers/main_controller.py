@@ -11,6 +11,8 @@ class MainController():
         self.thread = None
         self.report_generator = None
         self.is_request_in_progress = False
+        
+        self.ai.error_occured.connect(self.show_error_message)
 
         self.view.generate_button.clicked.connect(self.generate_report)
         self.view.report_title_input.textChanged.connect(self.report_title_changed)
@@ -67,4 +69,9 @@ class MainController():
             self.thread = None
             self.report_generator = None
             self.is_request_in_progress = False
+    
+    def show_error_message(self, error_message):
+        self.view.show_message_box("Error", error_message)
+        self.view.stop_waiting_spinner()
+        self.cleanup_thread()
     
