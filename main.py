@@ -16,6 +16,9 @@ if __name__ == "__main__":
     ai = AI(openai_api_key,replicate_api_token)
     
     controller = MainController(report_data, view, ai)
+
+    with open('supporting/style.css', 'r') as f:
+        app.setStyleSheet(f.read())
     
     view.show()
     app.exec_()

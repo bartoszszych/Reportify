@@ -1,7 +1,7 @@
 from PyQt5.QtWidgets import (
     QMainWindow, QWidget, QPushButton, QLineEdit,
     QLabel, QVBoxLayout, QGridLayout, QTextEdit,
-    QFileDialog
+    QFileDialog, QMessageBox
 )
 from PyQt5.QtGui import QFont, QColor, QPixmap
 from PyQt5.QtCore import Qt
@@ -67,9 +67,6 @@ class MainView(QMainWindow):
         self.report_title_label.setFont(self.font)
         self.report_title_input = QLineEdit()
         self.report_title_input.setPlaceholderText("Enter report title...")
-        self.report_title_input.setStyleSheet(
-            "QLineEdit { border: 2px solid #6A5ACD; border-radius: 10px; padding: 5px; background-color: #2F4F4F; color: white }"
-        )
         self.top_widget_layout.addWidget(self.report_title_label, 0, 0)
         self.top_widget_layout.addWidget(self.report_title_input, 0, 1)
 
@@ -78,9 +75,6 @@ class MainView(QMainWindow):
         self.description_label.setFont(self.font)
         self.description_input = QTextEdit()
         self.description_input.setPlaceholderText("Enter description...")
-        self.description_input.setStyleSheet(
-            "QTextEdit { border: 2px solid #6A5ACD; border-radius: 10px; padding: 5px; background-color: #2F4F4F; color: white }"
-        )
         self.top_widget_layout.addWidget(self.description_label, 1, 0)
         self.top_widget_layout.addWidget(self.description_input, 1, 1)
 
@@ -89,44 +83,26 @@ class MainView(QMainWindow):
         self.keywords_label.setFont(self.font)
         self.keywords_input = QLineEdit()
         self.keywords_input.setPlaceholderText("Enter keywords, separated by commas...")
-        self.keywords_input.setStyleSheet(
-            "QLineEdit { border: 2px solid #6A5ACD; border-radius: 10px; padding: 5px; background-color: #2F4F4F; color: white }"
-        )
         self.top_widget_layout.addWidget(self.keywords_label, 2, 0)
         self.top_widget_layout.addWidget(self.keywords_input, 2, 1)
 
     def create_audio_file_button(self):
         self.audio_file_button = QPushButton(f"Audio file")
-        self.audio_file_button.setStyleSheet(
-            "QPushButton { background-color: #6A5ACD; color: white; border: none; border-radius: 5px; padding: 5px }"
-            "QPushButton:hover { background-color: #7B68EE }"
-            "QPushButton:pressed { background-color: #483D8B }"
-        )
         self.top_widget_layout.addWidget(self.audio_file_button, 3, 0, 1, 2)
 
     def create_image_file_button(self):
         self.image_file_button = QPushButton("Image file")
-        self.image_file_button.setStyleSheet(
-            "QPushButton { background-color: #6A5ACD; color: white; border: none; border-radius: 5px; padding: 5px }"
-            "QPushButton:hover { background-color: #7B68EE }"
-            "QPushButton:pressed { background-color: #483D8B }"
-        )
         self.top_widget_layout.addWidget(self.image_file_button, 4, 0, 1, 2)
 
     def create_generate_button(self):
         self.generate_button = QPushButton("Generate report")
-        self.generate_button.setStyleSheet(
-            "QPushButton { background-color: #6A5ACD; color: white; border: none; border-radius: 5px; padding: 5px }"
-            "QPushButton:hover { background-color: #7B68EE }"
-            "QPushButton:pressed { background-color: #483D8B }"
-        )
         self.top_widget_layout.addWidget(self.generate_button, 5, 0, 1, 2)
 
     def create_image_label(self):
         self.image_label = QLabel("Image")
         self.image_label.setAlignment(Qt.AlignCenter)
         self.image_label.setStyleSheet(
-            "QLabel { border: 2px solid #6A5ACD; border-radius: 10px; padding: 5px; background-color: #2F4F4F; color: white }"
+            "QLabel { border: 2px solid #6A5ACD; padding: 5px; background-color: #2F4F4F; color: white }"
         )
         self.image_label.setMinimumSize(200, 200)
         self.top_widget_layout.addWidget(self.image_label, 6, 0, 1, 2)
@@ -145,9 +121,6 @@ class MainView(QMainWindow):
         self.report_label.setAlignment(Qt.AlignCenter)
         self.report_text_edit = QTextEdit()
         self.report_text_edit.setPlaceholderText("Your generated report will appear here...")
-        self.report_text_edit.setStyleSheet(
-            "QTextEdit { border: 2px solid #6A5ACD; border-radius: 10px; padding: 5px; background-color: #2F4F4F; color: white }"
-        )
         self.bottom_widget_layout.addWidget(self.report_label)
         self.bottom_widget_layout.addWidget(self.report_text_edit)
 
@@ -207,3 +180,11 @@ class MainView(QMainWindow):
         file_path, _ = QFileDialog.getOpenFileName(None, "Select file")
         if file_path:
             return file_path
+
+    def show_message_box(self, title, text):
+        message = QMessageBox()
+        message.setIcon(QMessageBox.Information)
+        message.setWindowTitle(title)
+        message.setText(text)
+        message.setStandardButtons(QMessageBox.Ok)
+        message.exec_()
